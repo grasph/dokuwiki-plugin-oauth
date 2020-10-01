@@ -145,6 +145,8 @@ class action_plugin_oauth extends DokuWiki_Action_Plugin {
         /** @var auth_plugin_authplain $auth */
         global $auth;
 
+        global $conf;
+
         /** @var helper_plugin_oauth $hlp */
         $hlp = plugin_load('helper', 'oauth');
 
@@ -224,7 +226,8 @@ class action_plugin_oauth extends DokuWiki_Action_Plugin {
         global $ID;
         $html = '';
         $html .= '<a href="' . wl($ID, array('oauthlogin' => $service)) . '" class="plugin_oauth_' . $service . '">';
-        $html .= $service;
+        $btn_label = $this->getConf(strtolower($service) . '-label') ?: $service;
+        $html .= $btn_label;
         $html .= '</a> ';
         return $html;
 
