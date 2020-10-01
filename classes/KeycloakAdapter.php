@@ -2,6 +2,8 @@
 
 namespace OAuth\Plugin;
 
+use OAuth\OAuth2\Service\Keycloak;
+
 /**
  * Class KeycloakAdapter
  *
@@ -48,5 +50,16 @@ class KeycloakAdapter extends AbstractAdapter {
     public function getServiceName() {
         return 'Keycloak';
     }
+
+    /**
+     * Scopes to request to the identity provider
+     *
+     * @return array
+     */
+    public function getScope() {
+        return array(Keycloak::SCOPE_OPENID, Keycloak::SCOPE_PROFILE, Keycloak::SCOPE_EMAIL);
+    }
+
+
 
 }

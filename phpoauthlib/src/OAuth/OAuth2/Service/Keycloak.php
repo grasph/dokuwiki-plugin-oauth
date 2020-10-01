@@ -13,6 +13,10 @@ use OAuth\Common\Http\Uri\UriInterface;
 
 class Keycloak extends Generic
 {
+    const SCOPE_OPENID = 'openid';
+    const SCOPE_EMAIL = 'email';
+    const SCOPE_PROFILE = 'profile';
+    
     protected function getAuthorizationMethod()
     {
         return static::AUTHORIZATION_METHOD_HEADER_BEARER;
